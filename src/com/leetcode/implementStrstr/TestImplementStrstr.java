@@ -33,6 +33,7 @@ public class TestImplementStrstr {
         if (haystack==null || haystack.equals("")){
             return -1;
         }
+        //如果被查找字符串比 查找的长 返回-1
         if (needle.length()>haystack.length()){
             return -1;
         }
@@ -42,6 +43,7 @@ public class TestImplementStrstr {
 
         outer:
         for (int i = 0; i < out.length; i++) {
+            //首先匹配第一个字母 然后判断整个字符串是否匹配
             if (out[i]==in[0] && i+in.length<=out.length){
                 for (int j = 1; j < in.length; j++) {
                     if (out[i+j]!=in[j]){

@@ -44,6 +44,7 @@ public class TestLongestCommonPrefix {
                 min = strs[i].length();
             }
         }
+        //只需要遍历到最短的字符大小就可以了
         for (int i = 0; i < min; i++) {
 
             char ch = strs[0].charAt(i);

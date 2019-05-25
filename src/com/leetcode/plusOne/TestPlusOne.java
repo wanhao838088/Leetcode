@@ -38,6 +38,7 @@ public class TestPlusOne {
         if (digits.length==1){
             num = digits[0]+"";
         }else {
+            //拼接输入的数组
             String org = "";
             for (int i = 0; i < digits.length; i++) {
                 org+=digits[i];
@@ -50,6 +51,7 @@ public class TestPlusOne {
         //末尾的一串0
         String end = "";
         int temp = Integer.parseInt(num.substring(j-1,j)) +1;
+        //循环判断末尾 是否 +1 等于10
         while (temp==10 && j>0){
             end+="0";
             j--;
@@ -79,6 +81,7 @@ public class TestPlusOne {
             result = num.substring(0,num.length()-1) + temp;
         }
 
+        //转数组 返回结果
         int[] arr = new int[result.length()];
         for (int i = 0; i < result.length(); i++) {
             arr[i] = Integer.parseInt(result.substring(i,i+1));

@@ -26,25 +26,48 @@ public class TestBestTimeBuy {
 
     public static void main(String[] args) {
 
-        int[] arr = {7,6,4,3,1};
+        int[] arr = {7,1,5,3,6,4};
         int i = maxProfit(arr);
         System.out.println(i);
     }
 
+    // On2
+//    public static int maxProfit(int[] prices) {
+//        int result = 0;
+//        if (prices==null || prices.length==0){
+//            return result;
+//        }
+//        for (int i = 0; i < prices.length; i++) {
+//            for (int j = i+1; j < prices.length; j++) {
+//                //计算盈利情况
+//                int buy = prices[i];
+//                int sale = prices[j];
+//                if (sale-buy>result){
+//                    result = sale-buy;
+//                }
+//            }
+//        }
+//        return result;
+//    }
+
+
+    /**
+     * 时间复杂度 On
+     * @param prices
+     * @return
+     */
     public static int maxProfit(int[] prices) {
         int result = 0;
         if (prices==null || prices.length==0){
             return result;
         }
-        for (int i = 0; i < prices.length; i++) {
-            for (int j = i+1; j < prices.length; j++) {
-                //计算盈利情况
-                int buy = prices[i];
-                int sale = prices[j];
-                if (sale-buy>result){
-                    result = sale-buy;
-                }
-            }
+        int minPrice = prices[0];
+
+        for (int i = 1; i < prices.length; i++) {
+            //从开始到现在的最小值
+            minPrice = Math.min(prices[i],minPrice);
+            //最大盈利
+            result = Math.max(prices[i]-minPrice,result);
         }
         return result;
     }

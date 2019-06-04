@@ -33,10 +33,29 @@ public class TestExcelTitle {
 
     public static void main(String[] args) {
 
-        int num = 5666;
-        String s = convertToTitle(num);
+        int num = 999;
+        String s = "";
+        s = toHex(num);
+
         System.out.println(s);
     }
+
+    /**
+     * 把10进制转16进制
+     * @param n
+     * @return
+     */
+    private static String toHex(int n){
+        String[] hexs = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
+        StringBuilder sb = new StringBuilder();
+
+        while (n>0){
+            sb.append(hexs[n%16]);
+            n/=16;
+        }
+        return sb.reverse().toString();
+    }
+
 
     public static String convertToTitle(int n) {
         if (n<=0){

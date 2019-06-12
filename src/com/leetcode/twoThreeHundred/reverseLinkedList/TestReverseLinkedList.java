@@ -1,7 +1,5 @@
 package com.leetcode.twoThreeHundred.reverseLinkedList;
 
-import java.util.LinkedList;
-
 /**
  * Created by LiuLiHao on 2019/6/5 0005 下午 04:54
  * @author : LiuLiHao
@@ -41,32 +39,50 @@ public class TestReverseLinkedList {
     }
 
     /**
-     * 反转链表
+     * 反转单向链表
      * @param head
      * @return
      */
     public static ListNode reverseList(ListNode head) {
-        if (head==null){
-            return null;
-        }
-        LinkedList<ListNode> list = new LinkedList<>();
+        ListNode reverse = null;
+        ListNode cur = head;
+        while (cur!=null){
+            ListNode next = cur.next;
+            cur.next = reverse;
+            reverse = cur;
 
-        while (head!=null){
-            //最后得元素放到最前面
-            list.addFirst(head);
-            head = head.next;
-        }
-
-        ListNode result = new ListNode(list.removeFirst().val);
-        //保存一份引用 返回出去
-        ListNode cp =result;
-
-        //取出元素
-        while (!list.isEmpty()){
-            result.next = new ListNode(list.removeFirst().val);
-            result = result.next;
+            cur = next;
         }
 
-        return cp;
+        return reverse;
     }
+    /**
+     * 反转链表
+     * @param head
+     * @return
+     */
+//    public static ListNode reverseList(ListNode head) {
+//        if (head==null){
+//            return null;
+//        }
+//        LinkedList<ListNode> list = new LinkedList<>();
+//
+//        while (head!=null){
+//            //最后得元素放到最前面
+//            list.addFirst(head);
+//            head = head.next;
+//        }
+//
+//        ListNode result = new ListNode(list.removeFirst().val);
+//        //保存一份引用 返回出去
+//        ListNode cp =result;
+//
+//        //取出元素
+//        while (!list.isEmpty()){
+//            result.next = new ListNode(list.removeFirst().val);
+//            result = result.next;
+//        }
+//
+//        return cp;
+//    }
 }

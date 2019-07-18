@@ -29,7 +29,9 @@ import java.util.Stack;
 public class TestBasicCalculator {
 
     public static void main(String[] args) {
-        String exp = "1";
+        int i = '/';
+        System.out.println(i);
+        String exp = "3/2";
         int calculate = calculate(exp);
         System.out.println(calculate);
 
@@ -156,7 +158,7 @@ public class TestBasicCalculator {
                     index++;
                     if (index<s.length()){
                         c = s.charAt(index);
-                        if (c<47 || c>58){
+                        if (c<48 || c>58){
                             index--;
                             break;
                         }

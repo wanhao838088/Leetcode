@@ -17,7 +17,7 @@ package com.leetcode.fourFiveHundred.addStrings;
 public class TestAddStrings {
     public static void main(String[] args) {
 
-        String s = addStrings("99" , "99");
+        String s = addStrings("9999999999999999999" , "22222222");
         System.out.println(s);
     }
 
